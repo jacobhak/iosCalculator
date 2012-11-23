@@ -27,10 +27,14 @@
     NSString *digit = [sender currentTitle];
     if (self.userIsEnteringNumber) {
         self.display.text = [self.display.text stringByAppendingString:digit];
+        self.display2.text = [self.display2.text stringByAppendingString:digit];
     } else {
         self.display.text = digit;
         self.userIsEnteringNumber = YES;
+        NSString *newDisplay2 = [self.display2.text stringByAppendingString:@" "];
+        self.display2.text = [newDisplay2 stringByAppendingString:self.display.text];
     }
+
 }
 - (IBAction)pointPressed:(UIButton *)sender {
     if ([self.display.text rangeOfString:@"."].location == NSNotFound) {
@@ -48,6 +52,8 @@
         [self enterPressed];
     }
     NSString *operation = [sender currentTitle];
+    NSString *newDisplay2 = [self.display2.text stringByAppendingString:@" "];
+    self.display2.text = [newDisplay2 stringByAppendingString:operation];
     double result = [self.brain performOperation:operation];
     self.display.text = [NSString stringWithFormat:@"%g", result];
 }
