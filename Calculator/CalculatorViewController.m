@@ -32,6 +32,11 @@
         self.userIsEnteringNumber = YES;
     }
 }
+- (IBAction)pointPressed:(UIButton *)sender {
+    if ([self.display.text rangeOfString:@"."].location == NSNotFound) {
+        [self digitPressed:sender];
+    }
+}
 
 - (IBAction)enterPressed {
     [self.brain pushOperand:[self.display.text doubleValue]];
