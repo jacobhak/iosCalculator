@@ -59,4 +59,8 @@
     return result;
 }
 
+- (void)clear {
+    self.operandStack = nil;
+}
+
 @end

@@ -57,4 +57,10 @@
     double result = [self.brain performOperation:operation];
     self.display.text = [NSString stringWithFormat:@"%g", result];
 }
+
+- (IBAction)clearPressed {
+    [self.brain clear];
+    self.display.text = @"0";
+    self.display2.text = @"";
+}
 @end
